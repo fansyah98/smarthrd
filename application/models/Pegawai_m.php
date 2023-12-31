@@ -9,14 +9,13 @@ class Pegawai_m extends CI_Model {
     public function get($id = null )
     {
         $this->db->select('karyawan.*  , p_cabang.name as cabang_perusahaan , departemen.name as level_jabatan');
-        $this->db->from('karyawan');
         $this->db->join('p_cabang' , 'p_cabang.id_cabang = karyawan.id_cabang');
         $this->db->join('departemen', 'departemen.id_jabatan  = karyawan.id_jabatan');
-
-       
-        if($id != null ){
-            $this->db->where('id_karyawan' , $id) ;
+        $this->db->from('karyawan');
+        if ($id != null) {
+            $this->db->where('id_karyawan', $id);
         }
+        $this->db->order_by('nip', 'asc ');
         $query = $this->db->get();
         return $query;
     }
@@ -27,7 +26,6 @@ class Pegawai_m extends CI_Model {
         $params = [
             'nik' => $post['nik'],
             'name' => $post['name'],
-            'jabatan' => $post['jabatan'],
             'jenis_kelamin' => $post['jenis_kelamin'],
             'alamat' => $post['alamat'],
             'ttl'   => $post['date'],

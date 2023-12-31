@@ -8,18 +8,13 @@ class Kontrak extends CI_Controller
   {
     parent::__construct();
     check_not_login();
-    $this->load->model(['kontrak_m', 'pegawai_m']);
+    $this->load->model('kontrak_m');
   }
 
   public function index()
   {
-    $stardate = $this->input->get('stardate', TRUE);
-    $enddate = $this->input->get('enddate', TRUE);
-    $filter = $this->kontrak_m->get(array($stardate, $enddate));
-    $data = array(
-      'row' => $filter,
-    );
 
+    $data['row'] = $this->kontrak_m->get();
     $this->template->load('template', 'kontrak/data_kontrak', $data);
   }
 

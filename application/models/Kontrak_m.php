@@ -7,8 +7,8 @@ class Kontrak_m extends CI_Model
     public function get($id = null)
     {
         $this->db->select('*');
-        $this->db->from('p_kontrak');
-        $this->db->join('karyawan', 'karyawan.id_karyawan = p_kontrak.name');
+        $this->db->from('tb_kontrak');
+        // $this->db->join('karyawan', 'karyawan.id_karyawan = tb_kontrak.name');
         if ($id != null) {
             $this->db->where('id_kontrak', $id);
         }
@@ -19,7 +19,7 @@ class Kontrak_m extends CI_Model
     public function del($id)
     {
         $this->db->where('id_kontrak', $id);
-        $this->db->delete('p_kontrak');
+        $this->db->delete('tb_kontrak');
     }
 
     public function add($post)
@@ -33,7 +33,7 @@ class Kontrak_m extends CI_Model
             'tgl_selesai' => $post['tgl_selesai'],
 
         ];
-        $this->db->insert('p_kontrak', $params);
+        $this->db->insert('tb_kontrak', $params);
     }
 
 
@@ -48,19 +48,19 @@ class Kontrak_m extends CI_Model
             'tgl_selesai' => $post['tgl_selesai'],
         ];
         $this->db->where('id_kontrak', $post['id']);
-        $this->db->update('p_kontrak', $data);
+        $this->db->update('tb_kontrak', $data);
     }
 
     public function kontrak()
     {
-        $this->db->form('p_kontrak');
+        $this->db->form('tb_kontrak');
         $this->db->where("status=", "kontrak ");
         return $this->db->kontrak();
     }
 
     public function tetap()
     {
-        $this->db->from('p_kontrak');
+        $this->db->from('tb_kontrak');
         $this->db->where("status=", "Tetap ");
         return $this->db->tetap();
     }

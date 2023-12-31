@@ -1,11 +1,11 @@
 <section class="content-header">
   <h1>
     Data 
-    <small>Departemen</small>
+    <small> Unit / Departemen</small>
   </h1>
   <ol class="breadcrumb">
-  <li><a href="<?=site_url('dashboard')?>"><i class="fa fa-dashboard text-success"></i> Home</a></li>
-  <li><a href="<?=site_url('user')?>"><i class="fa fa-database text-warning"></i> Data departemen jabatan </a></li>   
+  <li><a href="<?=site_url('dashboard')?>"><i class="fa fa-dashboard "></i> Dashboard</a></li>
+  <li><a href="<?=site_url('user')?>"> Data unit / Divisi </a></li>   
   </ol>
 </section>
 
@@ -20,34 +20,31 @@
         </div>
       </div>
       <div class="box-body">
-        <table id="table2"  class="table table-bordered table-striped table-responsive">
-          <thead>
-          <tr>
-            <th style="font-style: italic;">No</th>
-            <th style="font-style: italic;">Nama unit / Departemen </th>
-            <th class="text-center" style="font-style: italic;">Kode  </th>
-            <th class="text-center" style="font-style: italic;">Action </th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <?php 
-              $no = 1 ;
-              foreach ($departemen->result() as $kamu => $data ){ ?>
-              <tr>
-                <td ><?= $no++; ?></td>
-                <td><?= $data->name?></td>
-                <td class="text-center"><?= $data->kode?></td>
-                <td class="text-center">
-                  <form action="<?=site_url('departemen/del/' . $data->id_jabatan)?>" method="POST">
-                    <input type="hidden" name="id_departemen" value="<?= $data->id_jabatan?>">
-                    <button class="btn btn-primary btn-xs" onclick=" return confirm('Yakin hapus data ???')" ><i class="fa fa-trash"> </i></button>
-                    <a href="<?=site_url('departemen/edit/' . $data->id_jabatan) ?>" class="btn btn-success btn-xs"><i class="fa fa-pencil "></i></a>
-                  </form>
-                </td>   
-            </tbody>
-          <?php } ?>
-        </table>
+      <table class="table table-bordered table-hover table-responsive" id="table2">
+                <thead>
+                    <tr>
+                        <th style="width: 3%;">ID</th>
+                        <th>Kode</th>
+                        <th>Nama Divisi</th>
+                        <th style="width: 9%;">action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <?php
+                        $no = 1;
+                        foreach ($departemen->result() as $kamu => $data) { ?>
+                            <td><?= $data->id_jabatan ?></td>
+                            <td><?= $data->kode ?></td>
+                            <td><?= $data->name ?></td>
+                            <td  width="10%">
+                                <a href="<?= site_url('brand/del/' . $data->id_jabatan) ?>" class="btn btn-success btn-lg-2"><i class="fa fa-trash"></i> </a>
+                                <a href="<?= site_url('brand/edit/' . $data->id_jabatan) ?> " class="btn btn-warning  btn-lg-2"><i class="fa fa-eye"></i> </a>
+                            </td>
+                    </tr>
+                <?php } ?>
+                </tbody>
+            </table>
       </div>
     </div>
 </section>
