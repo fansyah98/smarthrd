@@ -94,8 +94,8 @@
             <th>No</th>
             <th>NIP </th>
             <th>NO KTP</th>
-            <th>Jenis Kelamin</th>
             <th>Karyawan</th>
+            <th>Jenis Kelamin</th>
             <th>TLL</th>
             <th>Unit </th>
             <th width="15% ">actions</th>

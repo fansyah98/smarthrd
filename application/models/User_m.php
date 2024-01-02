@@ -7,7 +7,7 @@ class User_m extends CI_Model {
     
     public function login($post){
         $this->db->select('*');
-        $this->db->from('user' , 'dec');
+        $this->db->from('tb_user' , 'dec');
         $this->db->where('username' , $post['username']);
         $this->db->where('password' , sha1($post['password']));
         $query = $this->db->get();
@@ -16,7 +16,7 @@ class User_m extends CI_Model {
 
     public function get($id = null ){
         $this->db->select('*');
-        $this->db->from('user');
+        $this->db->from('tb_user');
         if($id != null ){
             $this->db->where('user_id' , $id) ;
         }
@@ -26,7 +26,7 @@ class User_m extends CI_Model {
 
     public function del($id){
         $this->db->where('user_id' , $id);
-        $this->db->delete('user');
+        $this->db->delete('tb_user');
     }
 
     public function add($post)
@@ -36,7 +36,7 @@ class User_m extends CI_Model {
         $data['name'] = $post['name'];
         $data['address']  = $post['alamat'] != '' ? $post['alamat'] : null ;
         $data['level'] = $post['level'] ;
-        $this->db->insert('user' , $data);
+        $this->db->insert('tb_user' , $data);
     }
 
     public function edit($post)
@@ -50,7 +50,7 @@ class User_m extends CI_Model {
         $data['address']  = $post['alamat'] != "" ? $post['alamat'] : null ;
         $data['level'] = $post['level'] ;
         $this->db->where('user_id' , $post['id']);
-        $this->db->update('user' , $data);
+        $this->db->update('tb_user' , $data);
     }
 
     

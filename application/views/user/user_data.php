@@ -1,11 +1,11 @@
 <section class="content-header">
       <h1>
-        Data Users
-        <small>Halaman Users / Admin </small>
+        Data 
+        <small>Account User </small>
       </h1>
       <ol class="breadcrumb">
-      <li><a href="<?=site_url('dashboard')?>"><i class="fa fa-dashboard text-primary"></i> HOME</a></li>
-      <li><a href="<?=site_url('user')?>"><i class="fa fa-database text-success"></i> DATA PEGAWAI </a></li>
+      <li><a href="<?=site_url('dashboard')?>"><i class="fa fa-dashboard "></i> Dashboard</a></li>
+      <li><a href="<?=site_url('user')?>"> Pegawai </a></li>
         
       </ol>
 </section>
@@ -14,23 +14,21 @@
   <?php $this->load->view('message')?>
       <div class="box">
         <div class="box-header">
-            <h3 class="box-title"> Halaman Data Users </h3>
+            <h3 class="box-title"> Halaman Account User </h3>
             <div class="pull-right">
-                  <a href="<?=site_url('user/add')?>" class="btn btn-primary btn-flat btn-xs "><i class="fa fa-user-plus "></i></a>
-            <a href="" class="btn btn-warning btn-flat btn-xs "><i class="fa fa-print "></i></a>
+                  <a href="<?=site_url('user/add')?>" class="btn btn-primary btn-lg-6 "><i class="fa fa-user-plus "></i>Tambah Account User</a>
         </div>
-      </div>
-         
+      </div>    
             <div class="box-body">
               <table  class="table table-bordered table-striped table-responsive" id="table2">
                   <thead>
                     <tr>
-                        <th style="font-style: italic;">No</th>
-                        <th style="font-style: italic;">Name</th>
-                        <th style="font-style: italic;">Username</th>
-                        <th style="font-style: italic;">TTL</th>
-                        <th style="font-style: italic;">Level</th>
-                        <th >Action</th>
+                        <th >No</th>
+                        <th>Name</th>
+                        <th >Username</th>
+                        <th >TTL</th>
+                        <th>Level</th>
+                        <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -45,11 +43,10 @@
                       <td>
                         <form action="<?=site_url('user/del/' . $data->user_id)?>" method="POST">
                           <input type="hidden" name="user_id" value="<?= $data->user_id?>">
-                            <button class="btn btn-primary btn-xs" onclick="return confirm('Yakin Data Di Hapuss!!')" ><i class="fa fa-trash"> </i></button>
-                            <a  href="<?=site_url('user/edit/' . $data->user_id) ?>"  class="btn btn-success btn-xs"><i class="fa fa-pencil "></i></a>
+                            <button class="btn btn-primary btn-lg-6" onclick="return confirm('Yakin Data Di Hapuss!!')" ><i class="fa fa-trash"> </i></button>
+                            <a  href="<?=site_url('user/edit/' . $data->user_id) ?>"  class="btn btn-success btn-lg-6"><i class="fa fa-pencil "></i></a>
                         </form>
-                      </td>
-                  
+                      </td>          
                   </tbody>
                   <?php } ?>
               </table>

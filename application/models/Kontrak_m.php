@@ -8,7 +8,7 @@ class Kontrak_m extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tb_kontrak');
-        // $this->db->join('karyawan', 'karyawan.id_karyawan = tb_kontrak.name');
+        $this->db->join('tb_karyawan', 'tb_karyawan.id_karyawan = tb_kontrak.name');
         if ($id != null) {
             $this->db->where('id_kontrak', $id);
         }
@@ -27,7 +27,7 @@ class Kontrak_m extends CI_Model
         $params = [
 
             'name' => $post['pegawai'],
-            'tgl_mulai' =>   $post['tgl_mulai'],
+            'tanggal_mulai' =>   $post['tgl_mulai'],
             'status'  => $post['status'],
             'lama_kontrak' => $post['lama_kontrak'],
             'tgl_selesai' => $post['tgl_selesai'],

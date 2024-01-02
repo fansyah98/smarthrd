@@ -8,7 +8,7 @@ class Kontrak extends CI_Controller
   {
     parent::__construct();
     check_not_login();
-    $this->load->model('kontrak_m');
+    $this->load->model(['kontrak_m', 'pegawai_m']);
   }
 
   public function index()
@@ -18,12 +18,9 @@ class Kontrak extends CI_Controller
     $this->template->load('template', 'kontrak/data_kontrak', $data);
   }
 
-
-
   public function add()
   {
     $kontrak = new stdClass();
-
     $kontrak->id_kontrak = null;
     $kontrak->name = null;
     $kontrak->tgl_mulai = null;
@@ -31,9 +28,8 @@ class Kontrak extends CI_Controller
     $kontrak->lama_kontrak = null;
     $kontrak->tgl_selesai = null;
 
-
     $query_pegawai = $this->pegawai_m->get();
-    $pegawai[null] = ' - pili data -  ';
+    $pegawai[null] = ' - pilih data -  ';
     foreach ($query_pegawai->result() as $pgw) {
       $pegawai[$pgw->id_karyawan] = $pgw->name;
     }
@@ -45,8 +41,6 @@ class Kontrak extends CI_Controller
     );
     $this->template->load('template', 'kontrak/add_form_kontrak', $data);
   }
-
-
 
   public function del($id)
   {
@@ -78,8 +72,7 @@ class Kontrak extends CI_Controller
     foreach ($query_pegawai->result() as $pgw) {
       $pegawai[$pgw->id_karyawan] = $pgw->name;
     }
-
-
+    
     $query = $this->kontrak_m->get($id);
     if ($query->num_rows() > 0) {
       $kontrak = $query->row();
@@ -94,4 +87,6 @@ class Kontrak extends CI_Controller
       echo "window.location='" . site_url('kontrak/add_form_kontrak') . "';";
     }
   }
+
+ 
 }

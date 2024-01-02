@@ -1,7 +1,7 @@
 <section class="content-header">
   <h1>
     Data 
-    <small> Unit / Departemen</small>
+    <small> Divisi</small>
   </h1>
   <ol class="breadcrumb">
   <li><a href="<?=site_url('dashboard')?>"><i class="fa fa-dashboard "></i> Dashboard</a></li>
@@ -13,10 +13,9 @@
 <?php $this->load->view('message') ?> 
   <div class="box">
       <div class="box-header">
-        <h3 class="box-title"> Halaman Data departemen</h3>
+        <h3 class="box-title">  Data Divisi</h3>
         <div class="pull-right">
-          <a href="<?= site_url('departemen/add') ?>" class="btn btn-warning  btn-xs "><i class="fa fa-user-plus "></i></a>
-          <a href="" class="btn btn-danger btn-xs "><i class="fa fa-print "></i></a>
+          <a href="<?= site_url('departemen/add') ?>" class="btn btn-warning  btn-lg-6 "><i class="fa fa-user-plus "></i>Tambah Divisi</a>
         </div>
       </div>
       <div class="box-body">

@@ -29,6 +29,7 @@
       <div class="box-header">
         <h3 class="box-title"> Data Semua kontrak  Pegawai</h3>
         <div class="pull-right">
+          <a href="<?= base_url('pegawai') ?>" class="btn btn-primary"><i class="fa fa-undo"></i>   pegawai </a>
           <a href="<?= base_url('kontrak/add') ?>" class="btn btn-success"><i class="fa fa-plus"></i> Tambah kontrak pegawai </a>
         </div>
       </div>
@@ -42,6 +43,7 @@
               <th>tgl mulai </th>
               <th>Lama Kontrak</th>
               <th>tgl selesai</th>
+              <th>aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -55,15 +57,11 @@
                 <td><?= indo_date($data->tanggal_mulai) ?> </td>
                 <td><?= $data->lama_kontrak ?> </td>
                 <td><?= indo_date($data->tgl_selesai) ?> </td>
-              
-
+                <td> <a href="<?=site_url('kontrak/del/'. $data->id_kontrak)?>" class="btn btn-danger btn-lg-6"><i class="fa fa-trash-o"></i></a> </td>
             </tr>
-
           </tbody>
         <?php } ?>
-
         </table>
       </div>
     </div>
-
   </section>

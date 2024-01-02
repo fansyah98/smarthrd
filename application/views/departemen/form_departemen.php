@@ -4,9 +4,9 @@
     </h1>
 
     <ol class="breadcrumb">
-        <li><a href="<?=site_url('dashboard')?>" ><i class="fa fa-dashboard text-aqua"></i></a>HOME</li>
-        <li> <a href="<?= site_url('departemen')?>"> <i class="fa fa-database text-blue" ></i> DATA DEPARTEMEN </a></li>
-        <li> <a href="<?=site_url('departemen/add')?>"> <i class="fa fa-user-plus text-danger"></i> TAMBAH DATA </a></li>
+        <li><a href="<?=site_url('dashboard')?>" ><i class="fa fa-dashboard "></i></a>Dashboard</li>
+        <li> <a href="<?= site_url('departemen')?>">  Data Divisi </a></li>
+        <li> <a href="<?=site_url('departemen/add')?>"> <i class="fa fa-user-plus text-danger"></i> Tambah Divisi </a></li>
     </ol>
 
 </section>
@@ -33,12 +33,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label style="font-style: italic;"> <i class=" fa fa-user text-warning"></i> Kode</label>
+                        <label >  Kode</label>
                         <input type="text" name= "kode" class="form-control" value="<?=$departemen->kode?>">
                     </div>
 
                     <div class="form-group">
-                        <label style="font-style: italic;"> <i class=" fa fa-user text-warning"></i> Unit / Departemen</label>
+                        <label >  Unit / Departemen</label>
                         <input type="text" name= "name" class="form-control" value="<?=$departemen->name?>">
                     </div>
 

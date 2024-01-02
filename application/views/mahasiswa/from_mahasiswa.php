@@ -25,24 +25,24 @@
                         <form action="<?= site_url('magang/prosess') ?>" method="POST">
 
                             <div class="form-group">
-                                <i class="fa fa-users text-success"></i> <label> Nama Mahasiswa</label>
+                                <label> Nama Mahasiswa</label>
                                 <input type="hidden" name="id" value="<?= $magang->id_magang ?>">
                                 <input type="text" name="nama" class="form-control" value="<?= $magang->nama ?>">
                             </div>
 
                             <div class="form-group ">
-                                <i class="fa fa-barcode text-aqua"> </i> <label for="nim">NIM</label>
+                              <label for="nim">NIM</label>
                                 <input type="text" class="form-control" name="nim" value="<?= $magang->nim ?>">
 
                             </div>
 
                             <div class="form-group ">
-                                <i class="fa fa-barcode text-aqua"> </i> <label>Semester</label>
+                                <label>Semester</label>
                                 <input type="text" class="form-control" name="semester" value="<?= $magang->semester ?> ">
                             </div>
 
                             <div class="form-group ">
-                                <label> <i class=" fa fa-paper-plane-o text-blue"></i> Jenis Kelamin </label>
+                                <label>Jenis Kelamin </label>
                                 <select name="gender" id="" class="form-control">
                                     <option value="">Pilih</option>
                                     <option value="1" <?= $magang->gender == 1 ? 'selected' : null ?>> Laki Laki</option>
@@ -51,13 +51,12 @@
                             </div>
 
                             <div class="form-group ">
-                                <i class="fa fa-paper-plane text-yellow"></i> <label for="">Universitas </label>
+                                <label for="">Universitas </label>
                                 <input type="text" name="universitas" class="form-control" value="<?= $magang->universitas ?>">
-
                             </div>
 
                             <div class="form-group ">
-                                <i class="fa fa-truck text-green"></i> <label for="">Jurusan / Prodi</label>
+                               <label for="">Jurusan / Prodi</label>
                                 <input type="text" class="form-control" name="jurusan" value="<?= $magang->jurusan ?>" name="jurusan">
                             </div>
 

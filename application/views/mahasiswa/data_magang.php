@@ -1,11 +1,11 @@
 <section class="content-header">
-  <h1>Data Magang / PKL
-    <small> Mahasiswa / Mahasiswi </small>
+  <h1>Data 
+    <small> Magang </small>
   </h1>
 
   <ol class="breadcrumb">
-    <li><a href="<?= site_url('dashboard') ?>"> <i class="fa fa-dashboard text-aqua"></i> HOME </a> </li>
-    <li><a href="<?= site_url('magang') ?>"> <i class="fa fa-database text-yellow"></i> DATA MAGANG/PKL </a></li>
+    <li><a href="<?= site_url('dashboard') ?>"> <i class="fa fa-dashboard "></i> Dashboard </a> </li>
+    <li><a href="<?= site_url('magang') ?>">  Data Magang </a></li>
   </ol>
 
 </section>
@@ -15,24 +15,23 @@
   <?php $this->load->view('message') ?>
   <div class="box">
     <div class="box-header">
-      <h3 class="box-title"> Halaman Data Magang/PKL </h3>
+      <h3 class="box-title"> Data Magang  </h3>
       <div class="pull-right">
-        <a href="<?= site_url('magang/add') ?>" class="btn btn-primary btn-flat btn-xs "><i class="fa fa-user-plus "></i></a>
-        <a href="" class="btn btn-danger btn-flat btn-xs "><i class="fa fa-print "></i></a>
+        <a href="<?= site_url('magang/add') ?>" class="btn btn-primary btn-lg-6 "><i class="fa fa-user-plus "></i>Tambah Data Magang</a>
       </div>
     </div>
     <div class="box-body">
-      <table class="table table-bordered table-striped table-responsive" id="table2">
+      <table class="table table-bordered  table-responsive" id="table2">
         <thead>
           <tr>
-            <th style="font-style: italic;">No</th>
-            <th style="font-style: italic;">NIM</th>
-            <th style="font-style: italic;">Nama</th>
-            <th style="font-style: italic;">Semester</th>
-            <th style="font-style: italic;">JL</th>
-            <th style="font-style: italic;">Universitas</th>
-            <th style="font-style: italic;">Jurusan</th>
-            <th style="font-style :italic ;" class="text-center">Action</th>
+            <th >No</th>
+            <th >NIM</th>
+            <th >Nama</th>
+            <th >Semester</th>
+            <th >JL</th>
+            <th >Universitas</th>
+            <th >Jurusan</th>
+            <th sty class="text-center">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -49,8 +48,8 @@
               <td><?= $data->jurusan ?></td>
 
               <td>
-                <a href="<?= site_url('magang/del/' . $data->id_magang) ?>" class="btn btn-success btn-xs" onclick="return confirm('Yakin Hapus Data !!! ')"><i class="fa fa-trash"></i></a>
-                <a href="<?= site_url('magang/edit/' . $data->id_magang) ?>" name="id" class="btn btn-danger btn-xs "> <i class="fa fa-pencil"></i></a>
+                <a href="<?= site_url('magang/del/' . $data->id_magang) ?>" class="btn btn-success btn-lg-6" onclick="return confirm('Yakin Hapus Data !!! ')"><i class="fa fa-trash"></i></a>
+                <a href="<?= site_url('magang/edit/' . $data->id_magang) ?>" name="id" class="btn btn-danger btn-lg-6 "> <i class="fa fa-pencil"></i></a>
               </td>
             </tr>
         </tbody>

@@ -8,7 +8,7 @@ class Departemen_m extends CI_Model {
 
     public function get($id = null){
         $this->db->select('*');
-        $this->db->from('departemen');
+        $this->db->from('tb_divisi');
         if($id != null ){
            $this->db->where('id_jabatan' , $id);
         }
@@ -21,7 +21,7 @@ class Departemen_m extends CI_Model {
             'name' => $post['name'],
             'kode' => $post['kode'],
         ];
-        $this->db->insert('departemen' , $data);
+        $this->db->insert('tb_divisi' , $data);
     }
 
     public function edit($post){
@@ -30,7 +30,7 @@ class Departemen_m extends CI_Model {
             'kode' => $post['kode']
         ];
         $this->db->where('id_jabatan' , $post['id']);
-        $this->db->update('Departemen' , $data );
+        $this->db->update('tb_divisi' , $data );
     }
 
     
@@ -38,6 +38,6 @@ class Departemen_m extends CI_Model {
 
     public function del($id){
         $this->db->where('id_jabatan' , $id);
-        $this->db->delete('Departemen');
+        $this->db->delete('tb_divisi');
     }
 }

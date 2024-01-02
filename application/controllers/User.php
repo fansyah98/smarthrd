@@ -9,6 +9,7 @@ class User extends CI_Controller
         parent::__construct();
         check_not_login();
         $this->load->model('user_m');
+        $this->load->library('form_validation');
         //load form validation bawaan dari CI
 
     }
@@ -37,7 +38,7 @@ class User extends CI_Controller
     {
         //mendeklarasikan from validation
         $this->form_validation->set_rules('name', 'name', 'required');
-        $this->form_validation->set_rules('username', 'username', 'required|min_length[5]|is_unique[users.username]');
+        $this->form_validation->set_rules('username', 'username', 'required|min_length[5]|is_unique[tb_user.username]');
         $this->form_validation->set_rules('password', 'password', 'required|min_length[5]');
         $this->form_validation->set_rules(
             'passconf',

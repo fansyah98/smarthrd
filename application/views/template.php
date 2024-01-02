@@ -83,24 +83,37 @@
                             <i class="fa fa-dashboard "></i> <span>Dashboard</span>
                         </a>
                     </li>
+                    <?php
+                    if ($this->session->userdata('level') == 'HRD') { ?>
                     <li <?= $this->uri->segment(1) == 'pegawai' || $this->uri->segment(1) == '' ? 'class="active"' : '' ?>>
                         <a href="<?= site_url('pegawai') ?>">
                             <i class="fa fa-users "></i> <span>Pegawai</span>
                         </a>
                     </li>
-                    <li class="treeview <?= $this->uri->segment(1) == 'cabang' || $this->uri->segment(1) == 'departemen' || $this->uri->segment(1) == 'satuan' || $this->uri->segment(1) == 'barang' || $this->uri->segment(1) == 'gudang' ? 'active' : '' ?>">
+                    <li <?= $this->uri->segment(1) == 'departemen' || $this->uri->segment(1) == '' ? 'class="active"' : '' ?>>
+                        <a href="<?= site_url('departemen') ?>">
+                            <i class="fa fa-cube "></i> <span>Data Divisi</span>
+                        </a>
+                    </li>
+                    <li <?= $this->uri->segment(1) == 'cabang' || $this->uri->segment(1) == '' ? 'class="active"' : '' ?>>
+                        <a href="<?= site_url('cabang') ?>">
+                            <i class="fa fa-building "></i> <span>Data Cabang</span>
+                        </a>
+                    </li>
+                    <li class="treeview <?= $this->uri->segment(1) == 'informasi' || $this->uri->segment(1) == 'kebijakan' || $this->uri->segment(1) == 'magang' ? 'active' : '' ?>">
                         <a href="#">
                             <i class="fa fa-clone"></i>
-                            <span> Master Data</span>
+                            <span> Master Data HRD</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li <?= $this->uri->segment(1) == 'cabang'  ? 'class="active"' : '' ?>><a href="<?= site_url('cabang') ?>"><i class="fa fa-circle-o"></i><span>Data Cabang </a></li>
-                            <li <?= $this->uri->segment(1) == 'departemen'  ? 'class="active"' : '' ?>><a href="<?= site_url('departemen') ?>"><i class="fa fa-circle-o"></i><span>Data Jabatan </a></li>
+                            <!-- <li <?= $this->uri->segment(1) == 'cabang'  ? 'class="active"' : '' ?>><a href="<?= site_url('cabang') ?>"><i class="fa fa-circle-o"></i><span>Data Cabang </a></li> -->
+                            <!-- <li <?= $this->uri->segment(1) == 'departemen'  ? 'class="active"' : '' ?>><a href="<?= site_url('departemen') ?>"><i class="fa fa-circle-o"></i><span>Data Jabatan </a></li> -->
                             <li <?= $this->uri->segment(1) == 'informasi'  ? 'class="active"' : '' ?>><a href="<?= site_url('informasi') ?>"><i class="fa fa-circle-o"></i><span>Data Pengumuman </a></li>
                             <li <?= $this->uri->segment(1) == 'kebijakan'  ? 'class="active"' : '' ?>><a href="<?= site_url('kebijakan') ?>"><i class="fa fa-circle-o"></i><span>Data Kebijakan </a></li>
+                            <li <?= $this->uri->segment(1) == 'magang'  ? 'class="active"' : '' ?>><a href="<?= site_url('magang') ?>"><i class="fa fa-circle-o"></i><span>Data Mahasiswa </a></li>
                             
                         </ul>
                     </li>
@@ -148,15 +161,17 @@
                         </ul>
                     </li>
                     <li class="header">PENGATURAN</li>
-                    <?php
-                    if ($this->session->userdata('level') == 1) { ?>
+                
                         <li <?= $this->uri->segment(1) == 'user' || $this->uri->segment(1) == '' ? 'class="active"' : '' ?>>
                             <a href="<?= site_url('user') ?>">
                                 <i class="fa fa-user text-aqua"></i> <span style="color :aqua">Management User</span>
                             </a>
                         </li>
                     <?php } ?>
-                    <li <?= $this->uri->segment(1) == 'informasi_aplikasi' || $this->uri->segment(1) == '' ? 'class="active"' : '' ?>><a href="<?= site_url('informasi_aplikasi') ?>"><i class="fa fa-gears "></i> <span> Info Aplikasi </span></a></li>
+                    <?php
+                    if ($this->session->userdata('level') == 'karyawan') { ?>
+                    <li <?= $this->uri->segment(1) == 'kebjikan' || $this->uri->segment(1) == '' ? 'class="active"' : '' ?>><a href="<?= site_url('kebijakan') ?>"><i class=" fa fa-info-circle  "></i> <span> Data Pengumuman  </span></a></li>
+                    <?php } ?>
                     <li><a href="#"  data-toggle="modal" data-target="#exampleModal"><i class="fa fa-sign-out "></i> <span> Keluar</span></a></li>
                 </ul>
             </section>
