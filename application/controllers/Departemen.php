@@ -18,17 +18,15 @@ class Departemen extends CI_Controller {
 	}
 
 	//fungsi untuk menghapus data
-	public function del()
-	{
-		$id = $this->input->post('id_departemen');
-		$this->departemen_m->del($id);
-
-		if($this->db->affected_rows() > 0 ){
-          $this->session->set_flashdata('success', 'Data Behasil di hapus ');
-		  
-        }
-		redirect('departemen');
-	}
+	public function del($id)
+    {
+    
+      $this->departemen_m->del($id);
+      if($this->db->affected_rows() > 0 ){
+       $this->session->set_flashdata('success' ,'Data berhasil di hapus');
+    }
+    redirect('departemen');
+    }
 
 	public function add(){
         $departemen = new stdClass ();

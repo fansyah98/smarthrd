@@ -39,7 +39,11 @@
                       <td><?= $data->name ?></td>
                       <td><?= $data->username ?></td>
                       <td><?= $data->address?></td>
-                      <td><?= $data->level  == 2 ? "Human Resource Department" : "Direksi Perusahaan"?></td>  
+                      <td><?php if($data->level == 'HRD') {
+                          echo 'HRD';
+                      }elseif ($data->level == 'Karyawan') {
+                         echo 'Karyawan';
+                      }?></td>  
                       <td>
                         <form action="<?=site_url('user/del/' . $data->user_id)?>" method="POST">
                           <input type="hidden" name="user_id" value="<?= $data->user_id?>">

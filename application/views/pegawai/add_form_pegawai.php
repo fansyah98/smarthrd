@@ -33,7 +33,7 @@
                     </div>
                     <div class="form-group col-xs-3">
                         <label >NIP Pegawai   </label>
-                        <input type="text" name="name" class="form-control " value="<?= $pegawai->name ?>" required>
+                        <input type="text" name="nip" class="form-control " value="<?= $pegawai->nip ?>" required>
                     </div>
                     <div class="form-group col-xs-3">
                         <label >Nama Lengkap   </label>

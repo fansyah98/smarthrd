@@ -8,7 +8,7 @@ class Magang_m extends CI_Model {
 
     public function get($id = null){
         $this->db->select('*');
-        $this->db->from('magang');
+        $this->db->from('tb_magang');
         if($id != null ){
            $this->db->where('id_magang' , $id);
         }
@@ -25,7 +25,7 @@ class Magang_m extends CI_Model {
             'universitas'=> $post['universitas'],
             'jurusan' => $post['jurusan']
         ];
-        $this->db->insert('magang' , $data);
+        $this->db->insert('tb_magang' , $data);
     }
 
     public function edit($post){
@@ -39,12 +39,12 @@ class Magang_m extends CI_Model {
             'jurusan' => $post['jurusan']
         ];
         $this->db->where('id_magang' , $post['id']);
-        $this->db->update('magang' , $data );
+        $this->db->update('tb_magang' , $data );
     }
 
     public function del($id){
         $this->db->where('id_magang' , $id);
-        $this->db->delete('magang');
+        $this->db->delete('tb_magang');
     }
 
 

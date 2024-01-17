@@ -25,22 +25,6 @@
                 echo $row->name;
                 // print_r($row);
             ?> 
-           
-           
-        </div>
-    </div>
-
-    <div class="box">
-        <div class="box-header">
-            <h3 class="box-title"> Barcode Generator Barang <i class="fa fa-qrcode"></i></h3>
-            <div class="pull-right">
-                <a href="<?= site_url('pegawai') ?>" class=" btn btn-success btn-sm btn-lg-6"> <i class="fa fa-undo"></i></a>
-               
-                
-            </div>
-        </div>
-        <div class="box-body">
-  
         </div>
     </div>
 </section>

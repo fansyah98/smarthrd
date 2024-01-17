@@ -72,7 +72,7 @@
                     </div>
                     <div class="pull-left info">
                         <p><?= $this->fungsi->user_login()->name ?></p>
-                        <a href="<?= site_url() ?>"><i class="fa fa-circle text-success"></i> <?= $this->fungsi->user_login()->level  == 1 ? 'Administrator' : 'Admin gudang' ?></a>
+                        <a href="<?= site_url() ?>"><i class="fa fa-circle text-success"></i> <?= $this->fungsi->user_login()->level ?></a>
                     </div>
                 </div>
                 <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -83,8 +83,8 @@
                             <i class="fa fa-dashboard "></i> <span>Dashboard</span>
                         </a>
                     </li>
-                    <?php
-                    if ($this->session->userdata('level') == 'HRD') { ?>
+                 
+ 
                     <li <?= $this->uri->segment(1) == 'pegawai' || $this->uri->segment(1) == '' ? 'class="active"' : '' ?>>
                         <a href="<?= site_url('pegawai') ?>">
                             <i class="fa fa-users "></i> <span>Pegawai</span>
@@ -103,7 +103,7 @@
                     <li class="treeview <?= $this->uri->segment(1) == 'informasi' || $this->uri->segment(1) == 'kebijakan' || $this->uri->segment(1) == 'magang' ? 'active' : '' ?>">
                         <a href="#">
                             <i class="fa fa-clone"></i>
-                            <span> Master Data HRD</span>
+                            <span>   HRD</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
@@ -114,38 +114,8 @@
                             <li <?= $this->uri->segment(1) == 'informasi'  ? 'class="active"' : '' ?>><a href="<?= site_url('informasi') ?>"><i class="fa fa-circle-o"></i><span>Data Pengumuman </a></li>
                             <li <?= $this->uri->segment(1) == 'kebijakan'  ? 'class="active"' : '' ?>><a href="<?= site_url('kebijakan') ?>"><i class="fa fa-circle-o"></i><span>Data Kebijakan </a></li>
                             <li <?= $this->uri->segment(1) == 'magang'  ? 'class="active"' : '' ?>><a href="<?= site_url('magang') ?>"><i class="fa fa-circle-o"></i><span>Data Mahasiswa </a></li>
-                            
                         </ul>
                     </li>
-                    <li class="treeview <?= $this->uri->segment(1) == 'masuk/in'  ? 'active' : '' ?>">
-                        <a href="#">
-                            <i class="fa fa-home"></i>
-                            <span> Data     </span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li <?= $this->uri->segment(1) == 'jenis'  ? 'class="active"' : '' ?>><a href="<?= site_url('jenis') ?>"><i class="fa fa-circle-o "></i> <span> Kategori </span> </a></li>
-                            <li <?= $this->uri->segment(1) == 'brand'  ? 'class="active"' : '' ?>><a href="<?= site_url('brand') ?>"><i class="fa fa-circle-o "></i> <span> Merek </a></li>
-                            <li <?= $this->uri->segment(1) == 'satuan'  ? 'class="active"' : '' ?>><a href="<?= site_url('satuan') ?>"><i class="fa fa-circle-o"></i><span> Satuan </a></li>
-                        </ul>
-                    </li>            
-                    <li class="treeview <?= $this->uri->segment(1) == 'masuk/in'  ? 'active' : '' ?>">
-                        <a href="#">
-                            <i class="fa fa-home"></i>
-                            <span> Master </span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li <?= $this->uri->segment(1) == 'masuk'  ? 'class="active"' : '' ?>><a href="<?= site_url('masuk/in') ?>"><i class="fa fa-folder   "></i> <span> Histori gudang </span> </a></li>
-                            <li <?= $this->uri->segment(1) == 'masuk/in/add'  ? 'class="active"' : '' ?>><a href="<?= site_url('masuk/in/add') ?>"><i class="fa fa-arrow-right "></i> <span> Masuk </span> </a></li>
-                            
-                        </ul>
-                    </li>            
-                
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-edit"></i> <span>Laporan</span>
@@ -161,17 +131,12 @@
                         </ul>
                     </li>
                     <li class="header">PENGATURAN</li>
-                
                         <li <?= $this->uri->segment(1) == 'user' || $this->uri->segment(1) == '' ? 'class="active"' : '' ?>>
                             <a href="<?= site_url('user') ?>">
                                 <i class="fa fa-user text-aqua"></i> <span style="color :aqua">Management User</span>
                             </a>
                         </li>
-                    <?php } ?>
-                    <?php
-                    if ($this->session->userdata('level') == 'karyawan') { ?>
                     <li <?= $this->uri->segment(1) == 'kebjikan' || $this->uri->segment(1) == '' ? 'class="active"' : '' ?>><a href="<?= site_url('kebijakan') ?>"><i class=" fa fa-info-circle  "></i> <span> Data Pengumuman  </span></a></li>
-                    <?php } ?>
                     <li><a href="#"  data-toggle="modal" data-target="#exampleModal"><i class="fa fa-sign-out "></i> <span> Keluar</span></a></li>
                 </ul>
             </section>
@@ -179,6 +144,7 @@
         <div class="content-wrapper">
             <?= $contents ?>
         </div>
+        
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
                 <b>Version</b> 1.0
@@ -186,6 +152,7 @@
             <span>Copyright &copy; 2022 <a href="<?= site_url('dashboard') ?>">Fansyah Dwi Krisnady </a></span> 
         </footer>
     </div>
+    
     <!-- Bootstrap 3.3.6 -->
     <script src="<?= base_url() ?>assets/bootstrap/js/bootstrap.min.js"></script>
     <!-- date-range-picker -->

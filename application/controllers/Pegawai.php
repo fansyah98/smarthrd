@@ -8,14 +8,14 @@ class Pegawai extends CI_Controller
 	{
 		parent::__construct();
 		check_not_login();
-		$this->load->model(['pegawai_m', 'departemen_m', 'cabang_m', 'pendidikan_m']);
+		$this->load->model(['pegawai_m', 'departemen_m', 'cabang_m', 'pendidikan_m', 'user_m']);
 	}
 
 	// ini adalah function load pertama
 	public function index()
 	{
 
-		$data['pegawai'] = $this->pegawai_m->get();
+		$data['pegawai'] = $this->pegawai_m->get()->result();
 		$this->template->load('template', 'pegawai/data_pegawai', $data);
 	}
 
@@ -31,6 +31,12 @@ class Pegawai extends CI_Controller
 		redirect('pegawai');
 	}
 
+	public function account($id)
+	{
+		$data['row'] = $this->user_m->get();
+		$this->template->load('template' ,'pegawai/data_account', $data);
+	}
+
 	public function add()
 	{
 		$pegawai = new stdClass();
@@ -39,6 +45,7 @@ class Pegawai extends CI_Controller
 		$pegawai->jenis_kelamin = null;
 		$pegawai->jabatan = null;
 		$pegawai->status = null;
+		$pegawai->nip = null;
 		$pegawai->nik = null;
 		$pegawai->ttl = date('Y-m-d 00:00:00', strtotime($this->input->post('tanggal_lahir')));
 		$pegawai->Kota_asal = null;
@@ -48,6 +55,7 @@ class Pegawai extends CI_Controller
 		$pegawai->no_hp = null;
 		$pegawai->id_jabatan = null;
 		$pegawai->kota = null;
+
 
 
 		$query_departemen = $this->departemen_m->get();
@@ -77,6 +85,8 @@ class Pegawai extends CI_Controller
 		$post = $this->input->post(null, TRUE);
 		if (isset($post['add'])) {
 			$this->pegawai_m->add($post);
+			// print_r($post);
+			// die();
 		} else if (isset($post['edit'])) {
 			$this->pegawai_m->edit($post);
 		}

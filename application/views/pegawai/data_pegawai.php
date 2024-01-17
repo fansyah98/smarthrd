@@ -24,7 +24,7 @@
         <div class="icon">
           <i class="ion ion-person"></i>
         </div>
-        <a href="<?= site_url('pegawai') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="<?= site_url('kontrak') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -55,7 +55,7 @@
         <div class="icon">
           <i class="ion ion-person-add"></i>
         </div>
-        <a href="<?= site_url('departemen') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="<?= site_url('jadwal_shift') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
 
@@ -82,12 +82,13 @@
       <h3 class="box-title">  Data Pegawai </h3>
       <div class="pull-right">
          <a href="<?= site_url('kontrak') ?>" class="btn btn-warning  btn-lg-5 "><i class="fa fa-file-pdf-o"></i> Kontrak Pegawai</a>
-         <a href="<?= site_url() ?>" class="btn btn-info  btn-lg-5 "><i class="fa fa- fa-clock-o "></i> Jadwal Shif Karyawan</a>
+         <a href="<?= site_url('jadwal_shift') ?>" class="btn btn-info  btn-lg-5 "><i class="fa fa- fa-clock-o "></i> Jadwal Shif Karyawan</a>
          <a href="<?= site_url() ?>" class="btn btn-primary  btn-lg-5 "><i class="fa fa-sign-out "></i> Karyawan  Risegn </a>
          <a href="<?= site_url('pegawai/add') ?>" class="btn btn-success  btn-lg-5 "><i class="fa fa-user-plus "></i> Tambah Data Pegawai</a>
       </div>
     </div>
     <div class="box-body">
+     
       <table class="table table-bordered table-responsive " id="table2">
         <thead>
           <tr>
@@ -103,18 +104,19 @@
         </thead>
         <?php
         $no = 1;
-        foreach ($pegawai->result() as $sayang => $data) { ?>
+        foreach ($pegawai as $sayang => $data) { 
+
+          ?>
           <td><?= $no++ ?></td>
           <td><a href="<?= site_url('pegawai/barcode_qrcode/' . $data->id_karyawan) ?>"><?= $data->nip ?></a></td>
           <td><?= $data->nik ?></a></td>
-          <td><?= $data->name ?></td>     
+          <td><?= $data->pegawai ?></td>     
           <td><?= $data->jenis_kelamin == 2 ? "Laki - laki " : " Perempuan " ?></td>     
           <td><?= indo_date($data->ttl)    ?></td>
           <td><?= $data->level_jabatan ?></td>
           <td>
             <a href="" class="btn btn-success btn-lg-5" ><i class="fa fa-eye"></i></a>
             <a href="<?= site_url('pegawai/del/' . $data->id_karyawan) ?>" class="btn btn-warning btn-lg-5" onclick="return confrim('Yakin di hapus !!!')"><i class="fa fa-trash"></i>  </a>
-            <a href="" class="btn btn-danger btn-lg-5 "><i class="fa fa-pencil "></i> </a>
           </td>
           </tbody>
         <?php } ?>
